@@ -10,10 +10,13 @@
  *   - add each card's HTML to the page
  */
 
+
+//HTMLCollection to an Array
+const arr = Array.prototype.slice.call(document.getElementsByClassName('card'));
+
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
-
     while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex -= 1;
@@ -21,11 +24,12 @@ function shuffle(array) {
         array[currentIndex] = array[randomIndex];
         array[randomIndex] = temporaryValue;
     }
-
     return array;
 }
 
+console.log(shuffle(arr));
 
+//console.log(cards);
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
