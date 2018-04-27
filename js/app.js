@@ -11,6 +11,57 @@ function shuffle(array) {
     return array;
 }
 
+//adiciona as classes show, open somente aos cards do deck
+function showCard(evt) {
+    if (evt.target.nodeName === 'LI') {  
+       evt.target.classList.add('show', 'open');
+       checkCards();
+    }
+}
+
+//adiciona as classes show, open somente aos cards do deck
+function checkCards(evt) {
+
+    let open = document.getElementsByClassName('show');  
+
+    if (open.length > 1) {  
+        
+        let open1 = open[0].children[0].className;
+        let open2 = open[1].children[0].className;
+
+        if (open1 == open2){
+            console.log(open1);
+        } else {
+            console.log(open1);
+        }
+
+    } 
+
+}
+
+function fixOpen() {
+    if (evt.target.nodeName === 'LI') {  
+        evt.target.classList.add('match'); 
+     }
+}
+
+function fixClosed() {
+    if (evt.target.nodeName === 'LI') {  
+        evt.target.classList.remove('show', 'open'); 
+     }
+}
+
+function countTimer() {
+	matchingGame.elapsedTime++;
+	var minute = Math.floor(matchingGame.elapsedTime / 60);
+	var second = matchingGame.elapsedTime % 60;
+
+	if (minute < 10) minute = "0" + minute;
+	if (second < 10) second = "0" + second;
+	$("#elapsed-time").html(minute+":"+second);
+}
+
+
 //Embaralha o card imediatamente após o carregamanto da página
 (function(){ 
     
@@ -27,16 +78,9 @@ function shuffle(array) {
 })();
 
 
-const clickButton = document.querySelector("#deck");
+const clickButton = document.getElementById("deck");
  
 clickButton.addEventListener('click', showCard);
-
-//adiciona as classes show, open somente aos cards do deck
-function showCard(evt) {
-    if (evt.target.nodeName === 'LI') {  
-       evt.target.classList.add('show', 'open'); 
-    }
-}
 
 
 /*
