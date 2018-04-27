@@ -27,12 +27,13 @@ function shuffle(array) {
 })();
 
 
-var clickButton = document.querySelector("#deck");
+const clickButton = document.querySelector("#deck");
  
-clickButton.addEventListener('click', displayDialog);
+clickButton.addEventListener('click', showCard);
 
-function displayDialog(evt) {
-    if (evt.target.nodeName === 'LI') {  //adiciona as classes show, open somente aos cards do deck
+//adiciona as classes show, open somente aos cards do deck
+function showCard(evt) {
+    if (evt.target.nodeName === 'LI') {  
        evt.target.classList.add('show', 'open'); 
     }
 }
