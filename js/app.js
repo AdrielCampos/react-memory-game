@@ -1,6 +1,3 @@
-//HTMLCollection to an Array
-const cards = Array.prototype.slice.call(document.getElementsByClassName('card'));
-
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     let currentIndex = array.length, temporaryValue, randomIndex;
@@ -14,18 +11,22 @@ function shuffle(array) {
     return array;
 }
 
-const suCard = shuffle(cards);
+//Embaralha o card imediatamente após o carregamanto da página
+(function(){ 
+    
+    const cards = Array.prototype.slice.call(document.getElementsByClassName('card')); //HTMLCollection to an Array  
+    const suCard = shuffle(cards); // Embaralha os cards
+    const fragment = document.createDocumentFragment();  //usa um DocumentFragment em vez de uma <div>
+    
+    for (let i = 0; i < suCard.length; i++) {
+        fragment.appendChild(suCard[i]);
+    }
+    
+    document.getElementById('deck').appendChild(fragment); //refluxo e redesenho -- só uma vez!
 
-const fragment = document.createDocumentFragment();  //usa um DocumentFragment em vez de uma <div>
-
-for (let i = 0; i < suCard.length; i++) {
-    fragment.appendChild(suCard[i]);
-}
-
-document.getElementById('deck').appendChild(fragment); //refluxo e redesenho -- só uma vez!
+})();
 
 
-console.log(cards);
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
