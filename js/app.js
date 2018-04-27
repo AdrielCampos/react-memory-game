@@ -27,6 +27,17 @@ function shuffle(array) {
 })();
 
 
+var clickButton = document.querySelector("#deck");
+ 
+clickButton.addEventListener('click', displayDialog);
+
+function displayDialog(evt) {
+    if (evt.target.nodeName === 'LI') {  //adiciona as classes show, open somente aos cards do deck
+       evt.target.classList.add('show', 'open'); 
+    }
+}
+
+
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
