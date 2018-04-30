@@ -7,13 +7,13 @@ let game = {
               'fa-leaf', 'fa-leaf',
               'fa-bicycle', 'fa-bicycle',
               'fa-birthday-cake', 'fa-birthday-cake'],
-    'totalCard': function(){return this.cards.length /2},
+    'totalMatch': function(){return this.cards.length /2},
     'opend': [],
-    //'matchup': [],
-    'moves': 0,
     'rank3stars': 12,
 	'rank2stars': 16,
     'rank1stars': 20,
+    'matchup': 0,
+    'moves': 0,
     'score':0
 }
 
@@ -24,7 +24,7 @@ function startGame(){
     const suCards = shuffle(game.cards); // Embaralha os cards   
     const fragment = document.createDocumentFragment();
     
-    console.log(game.totalCard());
+   // console.log(game.totalCard());
    
     for (let c = 0; c < suCards.length; c++) {
         
@@ -40,23 +40,30 @@ function startGame(){
     }
    
     deck.appendChild(fragment); //refluxo e redesenho -- só uma vez!
-    deck.addEventListener('click', showCard);
+    deck.addEventListener('click', checkCard);
     
 }
 
-function showCard(evt) {
+function checkCard(evt) {
+    //virifica se o alvo é um item da lista
     if (evt.target.nodeName === 'LI') {
         //Verifica se elemento já não está sendo exibido e naum naum foi aberto
         if (!evt.target.classList.contains('show', 'open') && !evt.target.classList.contains('match')) {
             game.opend.push(evt.target);
             evt.target.classList.add('show', 'open');
-            checkCards(game.opend);
-            console.log(game.moves);
-        } else {console.log("sem trapaçca")}
+            checkMatchup(game.opend);
+        } 
+
+        //Fim do jogo
+        if (game.matchup == game.totalMatch()) {       
+            setTimeout(function () {
+                window.alert("Fim do jogo");
+            }, 1000);
+        }
     }
 }
 
-function checkCards(evt) {
+function checkMatchup(evt) {
     // verivica se existe mais de um elemento em exibição
     if (evt.length > 1) {
         let open1 = evt[0].children[0].className;
@@ -70,7 +77,7 @@ function checkCards(evt) {
         }
         game.opend = [];
         game.moves++;
-    }
+    } 
 }
 
 function fixOpen(item) {
@@ -78,6 +85,7 @@ function fixOpen(item) {
         item[i].classList.add('match');
         item[i].classList.remove('show', 'open');
     }
+    game.matchup++;
 }
 
 function fixClosed(item) {
@@ -90,6 +98,14 @@ function fixClosed(item) {
 }
 
 function calcScore(){
+
+    if(game.rank1stars <= game.moves){
+
+    } else if (game.rank2stars <= game.moves){
+
+    } else {
+        
+    }
 
 }
 
