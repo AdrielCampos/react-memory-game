@@ -1,6 +1,62 @@
+
+let op = [];
+
+
+function showCard(evt) {
+    if (evt.target.nodeName === 'LI') {
+        if (!evt.target.classList.contains('show', 'open') && !evt.target.classList.contains('match')) {
+            op.push(evt.target);
+            evt.target.classList.add('show', 'open');
+            checkCards(op);
+        } else {console.log("sem trapaçca")}
+    }
+}
+
+function checkCards(evt) {
+    if (evt.length > 1) {
+        let open1 = evt[0].children[0].className;
+        let open2 = evt[1].children[0].className;
+        if (open1 == open2) {
+            console.log('igual');
+            fixOpen(op);
+        } else {
+            console.log('diferente');
+            fixClosed(op);
+        }
+        op = [];
+    }
+}
+
+function fixOpen(item) {
+    for (var i = 0; i < item.length; i++) {
+        item[i].classList.add('match');
+        item[i].classList.remove('show', 'open');
+    }
+}
+
+function fixClosed(item) {
+    setTimeout(function () {
+        for (var i = 0; i < item.length; i++) {
+            console.log(item[i].className); //second console output
+            item[i].classList.remove('show', 'open');
+        }
+    }, 1000);
+}
+
+function countTimer() {
+    matchingGame.elapsedTime++;
+    var minute = Math.floor(matchingGame.elapsedTime / 60);
+    var second = matchingGame.elapsedTime % 60;
+
+    if (minute < 10) minute = "0" + minute;
+    if (second < 10) second = "0" + second;
+    $("#elapsed-time").html(minute + ":" + second);
+}
+
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
-    let currentIndex = array.length, temporaryValue, randomIndex;
+    let currentIndex = array.length,
+        temporaryValue, randomIndex;
     while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex -= 1;
@@ -11,75 +67,23 @@ function shuffle(array) {
     return array;
 }
 
-//adiciona as classes show, open somente aos cards do deck
-function showCard(evt) {
-    if (evt.target.nodeName === 'LI') {  
-       evt.target.classList.add('show', 'open');
-       checkCards();
-    }
-}
-
-//adiciona as classes show, open somente aos cards do deck
-function checkCards(evt) {
-
-    let open = document.getElementsByClassName('show');  
-
-    if (open.length > 1) {  
-        
-        let open1 = open[0].children[0].className;
-        let open2 = open[1].children[0].className;
-
-        if (open1 == open2){
-            console.log(open1);
-        } else {
-            console.log(open1);
-        }
-
-    } 
-
-}
-
-function fixOpen() {
-    if (evt.target.nodeName === 'LI') {  
-        evt.target.classList.add('match'); 
-     }
-}
-
-function fixClosed() {
-    if (evt.target.nodeName === 'LI') {  
-        evt.target.classList.remove('show', 'open'); 
-     }
-}
-
-function countTimer() {
-	matchingGame.elapsedTime++;
-	var minute = Math.floor(matchingGame.elapsedTime / 60);
-	var second = matchingGame.elapsedTime % 60;
-
-	if (minute < 10) minute = "0" + minute;
-	if (second < 10) second = "0" + second;
-	$("#elapsed-time").html(minute+":"+second);
-}
-
-
 //Embaralha o card imediatamente após o carregamanto da página
-(function(){ 
-    
+(function () {
+
     const cards = Array.prototype.slice.call(document.getElementsByClassName('card')); //HTMLCollection to an Array  
     const suCard = shuffle(cards); // Embaralha os cards
-    const fragment = document.createDocumentFragment();  //usa um DocumentFragment em vez de uma <div>
     
+    const fragment = document.createDocumentFragment(); //usa um DocumentFragment em vez de uma <div>
     for (let i = 0; i < suCard.length; i++) {
         fragment.appendChild(suCard[i]);
     }
-    
     document.getElementById('deck').appendChild(fragment); //refluxo e redesenho -- só uma vez!
 
 })();
 
 
 const clickButton = document.getElementById("deck");
- 
+
 clickButton.addEventListener('click', showCard);
 
 
