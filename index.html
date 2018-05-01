@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <title>Matching Game</title>
@@ -8,6 +9,7 @@
     <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
     <link rel="stylesheet" href="css/app.css">
 </head>
+
 <body>
 
     <div class="container">
@@ -16,17 +18,23 @@
         </header>
 
         <section class="score-panel">
-        	<ul class="stars">
-        		<li><i class="fa fa-star"></i></li>
-        		<li><i class="fa fa-star"></i></li>
-        		<li><i class="fa fa-star"></i></li>
-        	</ul>
+            <ul class="stars">
+                <li>
+                    <i class="fa fa-star a"></i>
+                </li>
+                <li>
+                    <i class="fa fa-star b"></i>
+                </li>
+                <li>
+                    <i class="fa fa-star c"></i>
+                </li>
+            </ul>
 
-        	<span class="moves">3</span> Moves
+            <span class="moves">0 Move</span>
 
             <div class="restart">
-        		<i class="fa fa-repeat"></i>
-        	</div>
+                <i class="fa fa-repeat"></i>
+            </div>
         </section>
 
         <ul id="deck" class="deck">
@@ -35,6 +43,18 @@
 
     </div>
 
+    <div class="modal d-none">
+        <div class="modal-container">
+            <div class="modal-title"><h2>PARABÉNS!!!</h2></div>
+            <div class="modal-body">
+                <p>Voce fez <span class="pontuacao-final">3 estrelas</span></p>
+                <p>em <span class="tempo-final">00h 00m 00s</span></p>
+            </div>
+            <div class="modal-footer">Gostaria de jogar novamente? <a href="#" class="restart">Sim</a> <a href="#" class="close">Não</a></div>
+        </div>
+    </div>
+
     <script src="js/app.js"></script>
 </body>
+
 </html>
