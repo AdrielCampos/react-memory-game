@@ -122,8 +122,6 @@ function endGame() {
     // Verifica se o total de cartas combinadas conicide com o total de possibilidades no dack
     if (game.matchup == game.totalMatch()) {
 
-
-
         const res = document.querySelector('.close');
         res.addEventListener('click', closenModal);
 

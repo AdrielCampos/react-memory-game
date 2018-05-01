@@ -1,20 +1,14 @@
-# Memory Game Project
+# Matching Game
+## Important Notes
+* Feito como parte do programa Nanodegree (IPND) de Udacity de Fundamentos de Web Front-End.
+* Códico inicial fornecido pela [Udacity](https://github.com/udacity/fend-project-memory-game) com HTML, CSS, e função de surffle.
+    * Incorporado como fork
 
-## Table of Contents
+## Como Jogar
+O jogo começa automaticamente após o carregamento da página. Clique nos cartões para revelá-los. O objetivo é revelar duas cartas de cada vez para combinar com os pares. O jogo termina quando todos os pares são revelados.
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
-
-## Instructions
-
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
-
-To get started, open `js/app.js` and start building out the app's functionality
-
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
-
-## Contributing
-
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+### Pontuação
+3 estrelas = 12 movimentos ou menos 
+2 estrelas = 16 movimentos ou menos 
+1 estrela = 20 movimentos ou menos
+0 estrela = acima de 20 estrelas
