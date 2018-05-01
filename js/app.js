@@ -1,30 +1,83 @@
+let game = {
+    'cards': ['fa-diamond', 'fa-diamond',
+              'fa-paper-plane-o', 'fa-paper-plane-o',
+              'fa-anchor', 'fa-anchor',
+              'fa-bolt', 'fa-bolt',
+              'fa-cube', 'fa-cube',
+              'fa-leaf', 'fa-leaf',
+              'fa-bicycle', 'fa-bicycle',
+              'fa-birthday-cake', 'fa-birthday-cake'],
+    'totalMatch': function(){return this.cards.length /2},
+    'opend': [],
+    'rank3stars': 12,
+	'rank2stars': 16,
+    'rank1stars': 20,
+    'matchup': 0,
+    'moves': 0,
+    'score':0
+}
 
-let op = [];
+function startGame(){
 
+    //const cards = Array.prototype.slice.call(document.getElementsByClassName('card')); //HTMLCollection to an Array  
+    const deck  = document.getElementById('deck'); // captura todo o deck
+    const suCards = shuffle(game.cards); // Embaralha os cards   
+    const fragment = document.createDocumentFragment();
+    
+   // console.log(game.totalCard());
+   
+    for (let c = 0; c < suCards.length; c++) {
+        
+        let li = document.createElement('li');
+        li.classList.add('card');
+        
+        let i = document.createElement('i');
+        i.classList.add('fa',suCards[c]);
+        
+        li.appendChild(i);
 
-function showCard(evt) {
+        fragment.appendChild(li);
+    }
+   
+    deck.appendChild(fragment); //refluxo e redesenho -- só uma vez!
+    deck.addEventListener('click', checkCard);
+    
+}
+
+function checkCard(evt) {
+    //virifica se o alvo é um item da lista
     if (evt.target.nodeName === 'LI') {
+        //Verifica se elemento já não está sendo exibido e naum naum foi aberto
         if (!evt.target.classList.contains('show', 'open') && !evt.target.classList.contains('match')) {
-            op.push(evt.target);
+            game.opend.push(evt.target);
             evt.target.classList.add('show', 'open');
-            checkCards(op);
-        } else {console.log("sem trapaçca")}
+            checkMatchup(game.opend);
+        } 
+
+        //Fim do jogo
+        if (game.matchup == game.totalMatch()) {       
+            setTimeout(function () {
+                window.alert("Fim do jogo");
+            }, 1000);
+        }
     }
 }
 
-function checkCards(evt) {
+function checkMatchup(evt) {
+    // verivica se existe mais de um elemento em exibição
     if (evt.length > 1) {
         let open1 = evt[0].children[0].className;
         let open2 = evt[1].children[0].className;
         if (open1 == open2) {
             console.log('igual');
-            fixOpen(op);
+            fixOpen(game.opend);
         } else {
             console.log('diferente');
-            fixClosed(op);
+            fixClosed(game.opend);
         }
-        op = [];
-    }
+        game.opend = [];
+        game.moves++;
+    } 
 }
 
 function fixOpen(item) {
@@ -32,6 +85,7 @@ function fixOpen(item) {
         item[i].classList.add('match');
         item[i].classList.remove('show', 'open');
     }
+    game.matchup++;
 }
 
 function fixClosed(item) {
@@ -43,14 +97,16 @@ function fixClosed(item) {
     }, 1000);
 }
 
-function countTimer() {
-    matchingGame.elapsedTime++;
-    var minute = Math.floor(matchingGame.elapsedTime / 60);
-    var second = matchingGame.elapsedTime % 60;
+function calcScore(){
 
-    if (minute < 10) minute = "0" + minute;
-    if (second < 10) second = "0" + second;
-    $("#elapsed-time").html(minute + ":" + second);
+    if(game.rank1stars <= game.moves){
+
+    } else if (game.rank2stars <= game.moves){
+
+    } else {
+        
+    }
+
 }
 
 // Shuffle function from http://stackoverflow.com/a/2450976
@@ -67,24 +123,7 @@ function shuffle(array) {
     return array;
 }
 
-//Embaralha o card imediatamente após o carregamanto da página
-(function () {
-
-    const cards = Array.prototype.slice.call(document.getElementsByClassName('card')); //HTMLCollection to an Array  
-    const suCard = shuffle(cards); // Embaralha os cards
-    
-    const fragment = document.createDocumentFragment(); //usa um DocumentFragment em vez de uma <div>
-    for (let i = 0; i < suCard.length; i++) {
-        fragment.appendChild(suCard[i]);
-    }
-    document.getElementById('deck').appendChild(fragment); //refluxo e redesenho -- só uma vez!
-
-})();
-
-
-const clickButton = document.getElementById("deck");
-
-clickButton.addEventListener('click', showCard);
+startGame();
 
 
 /*
