@@ -14,7 +14,7 @@ let game = {
     'seconds': 0,
     'totalStars': 0,
     'opend': [],
-    'rank3stars': 12,
+    'rank3stars': 11,
     'rank2stars': 16,
     'rank1stars': 20,
     'matchup': 0,
