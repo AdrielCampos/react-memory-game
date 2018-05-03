@@ -74,16 +74,20 @@ function checkClickedCard(evt) {
 
 function checkMatchup(evt) {
     // verivica se existe mais de um elemento em exibição
-    if (evt.length > 1) {
+    console.log(evt.length);
+    if (evt.length == 2) {
         //isola cada item clicado para comparação
         let open1 = evt[0].children[0].className;
         let open2 = evt[1].children[0].className;
+        console.log('bla');
         if (open1 == open2) {
             fixOpen(game.opend);
+            console.log('igaul');
         } else {
             fixClosed(game.opend);
+            console.log('diferente');
         }
-        game.opend = []; // a cada dois cards abertos zera a lista
+       
         game.moves++; // a cada dois cards abertos conta um movimento
     }
 }
@@ -103,6 +107,7 @@ function fixClosed(item) {
         for (var i = 0; i < item.length; i++) {
             item[i].classList.remove('show', 'open');
         }
+        game.opend = []; // a cada dois cards abertos zera a lista
     }, 1000);
 }
 
@@ -182,13 +187,10 @@ function updateView() {
     } else if (game.moves <= game.rank2stars) {
         setStars(2);
         game.totalStars = '2 estrelas';
-    } else if (game.moves <= game.rank1stars) {
+    } else {
         setStars(1);
         game.totalStars = '1 estrela';
-    } else {
-        setStars(0);
-        game.totalStars = '0 estrela';
-    }
+    } 
 
 }
 
