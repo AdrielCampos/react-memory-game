@@ -9,7 +9,16 @@
 * [Font Awesome (icons)](https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css);
 * [Google Fonts (Coda)](https://fonts.googleapis.com/css?family=Coda);
 
-## Como Jogar
+
+## Iniciando o Jogo
+
+* Voce pode jogar diretamente [aqui](https://tomasguerreiro.github.io/memory-game/);
+* Fazer um [clone](https://github.com/tomasguerreiro/memory-game.git) do projeto;
+    * Execute o arquivo index.html
+* Fazer o [download](https://github.com/tomasguerreiro/memory-game/archive/master.zip) diretamente.
+    * Execute o arquivo index.html
+
+## Instruções do Jogo
 O jogo começa automaticamente após o carregamento da página. Clique nos cartões para revelá-los. O objetivo é revelar duas cartas de cada vez para combinar com os pares. O jogo termina quando todos os pares são revelados.
 
 Um resumo aparecerá automáticamente quando todos os pares forem encontratros.
@@ -19,11 +28,3 @@ Um resumo aparecerá automáticamente quando todos os pares forem encontratros.
 2 estrelas = 16 movimentos ou menos 
 1 estrela = 20 movimentos ou menos
 0 estrela = acima de 20 estrelas
-
-## Como jogar
-
-* Voce pode jogar diretamente [aqui](https://tomasguerreiro.github.io/memory-game/);
-* Fazer um [clone](https://github.com/tomasguerreiro/memory-game.git) do projeto;
-    * Execute o arquivo index.html
-* Fazer o [download](https://github.com/tomasguerreiro/memory-game/archive/master.zip) diretamente.
-    * Execute o arquivo index.html
