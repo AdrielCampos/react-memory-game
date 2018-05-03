@@ -62,7 +62,7 @@ function checkClickedCard(evt) {
         //Verifica se elemento já não está sendo exibido e naum naum foi aberto
         if (!evt.target.classList.contains('show', 'open') && !evt.target.classList.contains('match')) {
             game.opend.push(evt.target);
-            evt.target.classList.add('show', 'open');
+            fixOpen(evt.target);
             checkMatchup(game.opend);
         }
 
@@ -74,30 +74,38 @@ function checkClickedCard(evt) {
 
 function checkMatchup(evt) {
     // verivica se existe mais de um elemento em exibição
-    console.log(evt.length);
     if (evt.length == 2) {
         //isola cada item clicado para comparação
         let open1 = evt[0].children[0].className;
         let open2 = evt[1].children[0].className;
         console.log('bla');
         if (open1 == open2) {
-            fixOpen(game.opend);
+            fixMatch(game.opend);
             console.log('igaul');
         } else {
             fixClosed(game.opend);
             console.log('diferente');
         }
-       
         game.moves++; // a cada dois cards abertos conta um movimento
     }
 }
 
-//Força os cards combinados a ficarem abertos
+//Abre os ícones clicados
 function fixOpen(item) {
+    //Evita abrir mais de dois itens ao msm tempo  
+    if(game.opend.length <= 2){
+        console.log(game.opend);
+        item.classList.add('show', 'open');
+    }
+}
+
+//Força os cards combinados a ficarem abertos
+function fixMatch(item) {
     for (var i = 0; i < item.length; i++) {
         item[i].classList.add('match');
         item[i].classList.remove('show', 'open');
     }
+    game.opend = []; // zera a lista
     game.matchup++;
 }
 
@@ -107,7 +115,7 @@ function fixClosed(item) {
         for (var i = 0; i < item.length; i++) {
             item[i].classList.remove('show', 'open');
         }
-        game.opend = []; // a cada dois cards abertos zera a lista
+        game.opend = []; // zera a lista
     }, 1000);
 }
 
