@@ -24,7 +24,6 @@ O jogo começa automaticamente após o carregamento da página. Clique nos cart�
 Um resumo aparecerá automáticamente quando todos os pares forem encontratros.
 
 ### Pontuação
-3 estrelas = 12 movimentos ou menos 
-2 estrelas = 16 movimentos ou menos 
-1 estrela = 20 movimentos ou menos
-0 estrela = acima de 20 estrelas
+* 3 estrelas = 11 movimentos ou menos 
+* 2 estrelas = 16 movimentos ou menos 
+* 1 estrela = 20 movimentos ou menos
