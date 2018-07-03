@@ -1,4 +1,7 @@
 # Jogo da Memória
+
+LINK: https://tomasguerreiro.github.io/memory-game/
+
 ## Notas Importantes
 * Feito como parte do programa Nanodegree (IPND) de Udacity de Fundamentos de Web Front-End.
 * Códico inicial fornecido pela [Udacity](https://github.com/udacity/fend-project-memory-game) com HTML, CSS, e função de surffle.
