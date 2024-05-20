@@ -1,6 +1,6 @@
 # Jogo da Memória
 
-LINK: https://tomasguerreiro.github.io/memory-game/
+LINK: https://tomasguerreiro.github.io/nanodegree-memory-game/
 
 ## Notas Importantes
 * Feito como parte do programa Nanodegree (IPND) de Udacity de Fundamentos de Web Front-End.
