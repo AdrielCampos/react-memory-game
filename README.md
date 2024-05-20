@@ -4,7 +4,7 @@ LINK: https://tomasguerreiro.github.io/memory-game/
 
 ## Notas Importantes
 * Feito como parte do programa Nanodegree (IPND) de Udacity de Fundamentos de Web Front-End.
-* Códico inicial fornecido pela [Udacity](https://github.com/udacity/fend-project-memory-game) com HTML, CSS, e função de surffle.
+* Códico inicial fornecido pela [Udacity](https://tomasguerreiro.github.io/nanodegree-memory-game/) com HTML, CSS, e função de surffle.
     * Incorporado como fork
 
 ## Dependências
@@ -15,7 +15,7 @@ LINK: https://tomasguerreiro.github.io/memory-game/
 
 ## Iniciando o Jogo
 
-* Voce pode jogar diretamente [aqui](https://tomasguerreiro.github.io/memory-game/);
+* Voce pode jogar diretamente [aqui](https://tomasguerreiro.github.io/nanodegree-memory-game/);
 * Fazer um [clone](https://github.com/tomasguerreiro/memory-game.git) do projeto;
     * Execute o arquivo index.html
 * Fazer o [download](https://github.com/tomasguerreiro/memory-game/archive/master.zip) diretamente.
