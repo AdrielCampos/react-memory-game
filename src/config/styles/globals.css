@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: 107, 223, 213;
+  --secondary: 169, 126, 205;
+  --background: 29, 42, 54;
+  --foreground: 2, 179, 228;
+
+  --card-color-1: #ffb3ba;
+  --card-color-2: #ffdfba;
+  --card-color-3: #ffffba;
+  --card-color-4: #baffc9;
+  --card-color-5: #bae1ff;
+  --card-color-6: #e2baff;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  body {
+    background-image: url("/geometry.png");
+    background-repeat: repeat;
+  }
+}
+
+.card-1 {
+  background-color: var(--card-color-1);
+}
+
+.card-2 {
+  background-color: var(--card-color-2);
+}
+
+.card-3 {
+  background-color: var(--card-color-3);
+}
+
+.card-4 {
+  background-color: var(--card-color-4);
+}
+
+.card-5 {
+  background-color: var(--card-color-5);
+}
+
+.card-6 {
+  background-color: var(--card-color-6);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+button,
+input,
+label,
+select,
+textarea,
+div,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+table,
+th,
+td,
+form,
+fieldset,
+legend,
+caption,
+header,
+footer,
+section,
+article,
+aside,
+nav,
+main,
+address,
+blockquote,
+pre,
+code,
+kbd,
+samp,
+var,
+cite,
+abbr,
+acronym,
+q,
+dfn,
+small,
+strong,
+em,
+i,
+b,
+u,
+s,
+strike,
+tt,
+big,
+sub,
+sup,
+bdo,
+br,
+hr,
+wbr,
+img,
+iframe,
+embed,
+object,
+param,
+video,
+audio,
+source,
+track,
+canvas,
+map,
+area,
+svg,
+math,
+table,
+caption,
+colgroup,
+col,
+tbody,
+thead,
+tfoot,
+tr,
+th,
+td,
+button,
+input,
+select,
+textarea,
+label,
+fieldset,
+legend,
+datalist,
+optgroup,
+option,
+output,
+progress,
+meter,
+details,
+summary,
+menuitem,
+menu {
+  @apply antialiased font-inter;
+}
