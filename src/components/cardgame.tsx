@@ -58,7 +58,8 @@ export const Cardgame = ({ mode, setMode }: CardgameProps) => {
   };
 
   useEffect(() => {
-    let loadedCards = jsonCards.map((card, index) => ({
+    const aleatoriedCards = jsonCards.sort(() => Math.random() - 0.5);
+    let loadedCards = aleatoriedCards.map((card, index) => ({
       id: index,
       image: card.image,
       name: card.name,
@@ -139,23 +140,23 @@ export const Cardgame = ({ mode, setMode }: CardgameProps) => {
         <div className="flex items-center justify-center gap-2">
           <FaStar
             className={getStars() >= 1 ? "text-yellow-500" : "text-gray-500"}
-            size={22}
+            size={34}
           />
           <FaStar
             className={getStars() >= 2 ? "text-yellow-500" : "text-gray-500"}
-            size={25}
+            size={37}
           />
           <FaStar
             className={getStars() >= 3 ? "text-yellow-500" : "text-gray-500"}
-            size={28}
+            size={40}
           />
           <FaStar
             className={getStars() >= 4 ? "text-yellow-500" : "text-gray-500"}
-            size={25}
+            size={37}
           />
           <FaStar
             className={getStars() >= 5 ? "text-yellow-500" : "text-gray-500"}
-            size={22}
+            size={34}
           />
         </div>
       </div>
@@ -171,6 +172,7 @@ export const Cardgame = ({ mode, setMode }: CardgameProps) => {
             <motion.div
               key={card.id}
               variants={cardVariant}
+              whileHover={{ scale: 1.05 }}
               onClick={() =>
                 flippedCards.length < 2 && !card.isMatched && flipCard(index)
               }
@@ -214,6 +216,9 @@ export const Cardgame = ({ mode, setMode }: CardgameProps) => {
                       height={288}
                       className="w-full h-full object-cover object-center rounded-lg"
                     />
+                    <p className="absolute text-center text-2lg font-normal bottom-0 right-0 p-2 px-4">
+                      {index}
+                    </p>
                   </div>
                 )}
               </AnimatePresence>
@@ -232,29 +237,29 @@ export const Cardgame = ({ mode, setMode }: CardgameProps) => {
       <motion.div
         ref={scope}
         initial={{ translateY: 1000 }}
-        className="bg-[rgba(0,0,0,0.8)] text-gray-100 fixed top-0 left-0 w-[100vw] h-[100vh] flex items-center justify-center flex-col gap-4"
+        className="bg-[rgba(0,0,0,0.9)] text-gray-100 fixed top-0 left-0 w-[100vw] h-[100vh] flex items-center justify-center flex-col gap-4"
       >
         <h4 className="text-5xl font-medium">🥳 Parabéns 🎉</h4>
         <div className="flex items-center justify-center gap-2">
           <FaStar
             className={getStars() >= 1 ? "text-yellow-500" : "text-gray-500"}
-            size={30}
+            size={39}
           />
           <FaStar
             className={getStars() >= 2 ? "text-yellow-500" : "text-gray-500"}
-            size={33}
+            size={42}
           />
           <FaStar
             className={getStars() >= 3 ? "text-yellow-500" : "text-gray-500"}
-            size={36}
+            size={45}
           />
           <FaStar
             className={getStars() >= 4 ? "text-yellow-500" : "text-gray-500"}
-            size={33}
+            size={42}
           />
           <FaStar
             className={getStars() >= 5 ? "text-yellow-500" : "text-gray-500"}
-            size={30}
+            size={39}
           />
         </div>
         <h5 className="text-2xl font-medium">Você fez {flippeds} jogadas</h5>
