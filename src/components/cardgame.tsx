@@ -122,7 +122,7 @@ export const Cardgame = ({ mode, setMode }: CardgameProps) => {
         setTimeout(() => {
           setDisabled(false);
           setFlippedCards([]);
-        }, 1000);
+        }, 3000);
       }
     }
   }, [flippedCards]);
